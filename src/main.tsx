@@ -4,6 +4,12 @@ import App from "./App.tsx";
 import "./index.css";
 import { WalletConnectionProvider } from "./contexts/WalletConnectionProvider";
 
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
 // Simple error boundary component
 class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
   constructor(props: { children: React.ReactNode }) {
