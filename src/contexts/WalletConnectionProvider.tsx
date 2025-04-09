@@ -1,17 +1,11 @@
 import { FC, ReactNode, useMemo } from "react";
-// Removed duplicate import of WalletProvider
 import {
     PhantomWalletAdapter
 } from "@solana/wallet-adapter-wallets";
-// Removed duplicate import of WalletModalProvider
-
-require("@solana/wallet-adapter-react-ui/styles.css");
-
 import {
     ConnectionProvider,
     WalletProvider
 } from "@solana/wallet-adapter-react";
-// Removed duplicate import of PhantomWalletAdapter
 import {
     WalletModalProvider
 } from "@solana/wallet-adapter-react-ui";
@@ -21,12 +15,20 @@ import { clusterApiUrl } from "@solana/web3.js";
 require("@solana/wallet-adapter-react-ui/styles.css");
 
 export const WalletConnectionProvider: FC<{ children: ReactNode }> = ({ children }) => {
-    const endpoint = useMemo(() => clusterApiUrl("devnet"), []);
-    const wallets = useMemo(() => [new PhantomWalletAdapter()], []);
+    // Use a more reliable RPC endpoint for production
+    const endpoint = useMemo(() => {
+        // You can replace this with your preferred RPC endpoint
+        return clusterApiUrl("devnet");
+    }, []);
+
+    // Check for browser environment before creating wallet adapters
+    const wallets = useMemo(() =>
+        typeof window !== 'undefined' ? [new PhantomWalletAdapter()] : [],
+        []);
 
     return (
         <ConnectionProvider endpoint={endpoint}>
-            <WalletProvider wallets={wallets} autoConnect>
+            <WalletProvider wallets={wallets} autoConnect onError={(error) => console.error('Wallet error:', error)}>
                 <WalletModalProvider>{children}</WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>
