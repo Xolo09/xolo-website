@@ -8,13 +8,13 @@ const HomePage: React.FC = () => {
     return (
         <div className="home-container">
             <img src="/logo.png" alt="XoloCoin Logo" className="logo" />
+            <WalletMultiButton />
             <h1 style={{ fontSize: "2.5rem", color: "#ff6600", marginBottom: "0.5rem" }}>
-                <WalletMultiButton />
                 Welcome to XoloCoin
             </h1>
 
             <p>
-                The meme coin inspired by the Xoloitzcuintli — launching{" "}
+                The meme coin inspired by the Xolo — launching{" "}
                 <strong>Cinco de Mayo</strong>
             </p>
 
@@ -35,10 +35,6 @@ const HomePage: React.FC = () => {
                 <a href="https://x.com/XoloCoin" target="_blank" rel="noopener noreferrer">🕊️ X</a>
                 <a href="https://github.com/Xolo09/xolo-frontend" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
                 <a href="https://t.me/XoloCoin" target="_blank" rel="noopener noreferrer">📢 Telegram</a>
-            </div>
-
-            <div className="wallet-button">
-                <WalletMultiButton />
             </div>
 
         </div>

@@ -46,7 +46,7 @@ export const WalletConnectionProvider: FC<{ children: ReactNode }> = ({ children
         <ConnectionProvider endpoint={endpoint}>
             <WalletProvider
                 wallets={wallets}
-                autoConnect={false} // Disable autoConnect
+                autoConnect={false} // Disable autoConnect initially
                 onError={(error) => {
                     console.error("Wallet error:", error);
                     setError(error as Error);
