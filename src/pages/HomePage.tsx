@@ -10,7 +10,7 @@ const HomePage: React.FC = () => {
             <img src="/logo.png" alt="XoloCoin Logo" className="logo" />
             <WalletMultiButton />
             <h1 style={{ fontSize: "2.5rem", color: "#ff6600", marginBottom: "0.5rem" }}>
-                Welcome to XoloCoin
+                Welcome to Xolo-Inu 
             </h1>
 
             <p>
